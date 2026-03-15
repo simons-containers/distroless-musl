@@ -6,11 +6,13 @@ on:
     paths:
       - Containerfile
       - versions.yaml
+      - etc
   pull_request:
     branches: [ "main" ]
     paths:
       - Containerfile
       - versions.yaml
+      - etc
   workflow_dispatch:
 
 permissions:
