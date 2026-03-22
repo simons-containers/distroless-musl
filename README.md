@@ -7,7 +7,7 @@ Bare-bones distroless container image base that contains musl libc, tzdata, and 
 | Arg | Description |
 |---|---|
 | `MUSL_VERSION` | Version of musl libc to use
-| `TZDB_VERSION` | Version of TZ to use
+| `TZDB_VERSION` | Version of TZDB to use
 
 Build container using build-args from versions.yaml:
 
