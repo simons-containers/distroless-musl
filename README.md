@@ -13,7 +13,7 @@ Build container using build-args from versions.yaml:
 
 ```bash
 docker build -t \
-  distroless-gotify:$(yq -r .gotify versions.yaml) \
+  distroless-gotify:$(yq -r .musl versions.yaml) \
   $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) -f Containerfile .
 ```
 
