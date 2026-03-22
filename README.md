@@ -7,16 +7,14 @@ Bare-bones distroless container image base that contains musl libc, tzdata, and 
 | Arg | Description |
 |---|---|
 | `MUSL_VERSION` | Version of musl libc to use
-| `TZ_VERSION` | Version of TZ to use
+| `TZDB_VERSION` | Version of TZ to use
 
-Build container:
+Build container using build-args from versions.yaml:
 
 ```bash
-docker build \
-  -t distroless-musl:${MUSL_VERSION} \
-  --build-arg TZ_VERSION=${TZ_VERSION} \
-  --build-arg MUSL_VERSION=${MUSL_VERSION} \
-  -f Containerfile .
+docker build -t \
+  distroless-gotify:$(yq -r .gotify versions.yaml) \
+  $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) -f Containerfile .
 ```
 
 ## License
