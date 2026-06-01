@@ -41,6 +41,8 @@ RUN mkdir -p /build/musl \
   && ./configure \
         --prefix=/usr \
         --syslibdir=/usr/lib \
+        CFLAGS="-O2 -fstack-protector-strong -fstack-clash-protection -fcf-protection=full -fdata-sections -ffunction-sections -D_FORTIFY_SOURCE=2 -fPIC -fpie -fno-plt -flto" \
+        LDFLAGS="-flto -Wl,-z,relro,-z,now,-z,noexecstack,-z,nocopyreloc,-z,text,-z,ibtplt -Wl,--gc-sections,--no-undefined,-pie" \
   && make -s -j$(nproc) \
   && make install DESTDIR=/base
 
