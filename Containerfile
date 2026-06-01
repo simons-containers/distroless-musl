@@ -41,8 +41,12 @@ RUN mkdir -p /build/musl \
   && ./configure \
         --prefix=/usr \
         --syslibdir=/usr/lib \
+        CFLAGS="-Os -fstack-protector-strong -D_FORTIFY_SOURCE=2 \
+            -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables" \
+        LDFLAGS="-Wl,-z,relro,-z,now -Wl,--as-needed" \
   && make -s -j$(nproc) \
-  && make install DESTDIR=/base
+  && make install DESTDIR=/base \
+  && find /base/usr/lib -type f -name '*.so' ! -name 'ld-musl-*.so.1' -exec strip --strip-unneeded "{}" \;
 
 # Cleanup base dir
 RUN find /base/usr -type f -regex '.*\.\(h\|a\|o\)' -delete \
