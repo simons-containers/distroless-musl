@@ -1,3 +1,7 @@
+![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-musl/latest_tag?ignore=latest,sha256*&label=latest)  
+![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-musl/size?tag=latest)  
+![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-musl/tags?ignore=latest,sha256*)  
+
 # Distroless musl libc container base
 
 Bare-bones distroless container image base that contains musl libc, tzdata, and mozilla CA certificates.
