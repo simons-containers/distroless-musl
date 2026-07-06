@@ -1,0 +1,23 @@
+{
+  "tzdb": {
+    "version": "2026b",
+    "purl": "pkg:generic/tzdb",
+    "source": {
+      "url_pattern": "https://data.iana.org/time-zones/releases/tzdb-{version}.tar.lz"
+    }
+  },
+  "ca-certificates": {
+    "version": "master",
+    "purl": "pkg:generic/ca-certificates",
+    "source": {
+      "url": "https://github.com/curl/curl/raw/refs/heads/master/scripts/mk-ca-bundle.pl"
+    }
+  },
+  "musl": {
+    "version": "1.2.6",
+    "purl": "pkg:generic/musl",
+    "source": {
+      "url_pattern": "https://musl.libc.org/releases/musl-{version}.tar.gz"
+    }
+  }
+}
