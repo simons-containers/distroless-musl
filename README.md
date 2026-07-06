@@ -1,25 +1,8 @@
-![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-musl/latest_tag?ignore=latest,sha256*&label=latest)  
-![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-musl/size?tag=latest)  
-![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-musl/tags?ignore=latest,sha256*)  
+[![Current Version](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/release.svg)](https://github.com/simons-containers/distroless-musl/pkgs/container/distroless-musl) [![Tags](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/tags.svg)](https://github.com/simons-containers/distroless-musl/pkgs/container/distroless-musl) <br> ![Current Size](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/size.svg) ![Wasted Size](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/wasted.svg) ![Efficiency](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/efficiency.svg) <br> ![Critical](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/critical.svg) ![High](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/high.svg) ![Medium](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/medium.svg) ![Low](https://raw.githubusercontent.com/simons-containers/distroless-musl/badges/.badges/main/low.svg) <br> [![Publish Workflow](https://img.shields.io/github/actions/workflow/status/simons-containers/distroless-musl/deploy.yaml?label=Publish%20Workflow&logo=github)](https://github.com/simons-containers/distroless-musl/actions/workflows/deploy.yaml) [![Update Workflow](https://img.shields.io/github/actions/workflow/status/simons-containers/distroless-musl/update-versions.yaml?label=Update%20Workflow&logo=github)](https://github.com/simons-containers/distroless-musl/actions/workflows/update-versions.yaml)
 
 # Distroless musl libc container base
 
 Bare-bones distroless container image base that contains musl libc, tzdata, and mozilla CA certificates.
-
-## Building
-
-| Arg | Description |
-|---|---|
-| `MUSL_VERSION` | Version of musl libc to use
-| `TZDB_VERSION` | Version of TZDB to use
-
-Build container using build-args from versions.yaml:
-
-```bash
-docker build -t \
-  distroless-gotify:$(yq -r .musl versions.yaml) \
-  $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) -f Containerfile .
-```
 
 ## License
 
